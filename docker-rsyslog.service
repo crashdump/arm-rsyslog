@@ -1,0 +1,13 @@
+[Unit]
+Description=rsyslog
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+WorkingDirectory=/opt/containers/arm-rsyslog
+ExecStart=/usr/local/bin/docker-compose up -d 
+ExecStop=/usr/local/bin/docker-compose stop
+
+[Install]
+WantedBy=multi-user.target
