@@ -1,0 +1,11 @@
+version: '2'
+services:
+  rsyslog:
+    image: crashdump/arm-rsyslog
+    ports:
+      - "514:514"
+      - "514:514/udp"
+    volumes:
+      - "/opt/containers-data/syslog/var/log:/var/log"
+    build:
+      context: .
